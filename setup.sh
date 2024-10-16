@@ -58,12 +58,6 @@ handle_error() {
 	echo "$(lsb_release -d | awk -F'\t' '{print $2}') $(uname -r) $(date)"
 	exit 1
 }
-trap 'handle_error $LINENO "$BASH_COMMAND"' ERR
-
-if [[ "$(systemd-detect-virt)" == "openvz" || "$(systemd-detect-virt)" == "lxc" ]]; then
-	echo "OpenVZ and LXC is not supported!"
-	exit 2
-fi
 
 #
 # Проверка прав root
