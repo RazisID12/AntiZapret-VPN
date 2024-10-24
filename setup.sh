@@ -293,8 +293,6 @@ systemctl enable wg-quick@vpn
 
 #
 # Отключим ненужные службы
-systemctl disable ufw > /dev/null || true
-systemctl disable firewalld > /dev/null || true
 
 ERRORS=""
 
