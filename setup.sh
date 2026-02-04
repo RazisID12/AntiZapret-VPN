@@ -31,7 +31,6 @@ fi
 OS="$(lsb_release -si | tr '[:upper:]' '[:lower:]')"
 VERSION="$(lsb_release -rs | cut -d '.' -f1)"
 
-	fi
 elif [[ "$OS" == "ubuntu" ]]; then
 	if [[ "$VERSION" != "22" ]] && [[ "$VERSION" != "24" ]]; then
 		echo "Error: Ubuntu $VERSION is not supported! Only versions 22 and 24 are allowed"
