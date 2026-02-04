@@ -31,10 +31,6 @@ fi
 OS="$(lsb_release -si | tr '[:upper:]' '[:lower:]')"
 VERSION="$(lsb_release -rs | cut -d '.' -f1)"
 
-if [[ "$OS" == "debian" ]]; then
-	if [[ "$VERSION" != "11" ]] && [[ "$VERSION" != "12" ]]; then
-		echo "Error: Debian $VERSION is not supported! Only versions 11 and 12 are allowed"
-		exit 5
 	fi
 elif [[ "$OS" == "ubuntu" ]]; then
 	if [[ "$VERSION" != "22" ]] && [[ "$VERSION" != "24" ]]; then
