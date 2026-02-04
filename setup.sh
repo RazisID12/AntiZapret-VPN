@@ -31,16 +31,6 @@ fi
 OS="$(lsb_release -si | tr '[:upper:]' '[:lower:]')"
 VERSION="$(lsb_release -rs | cut -d '.' -f1)"
 
-elif [[ "$OS" == "ubuntu" ]]; then
-	if [[ "$VERSION" != "22" ]] && [[ "$VERSION" != "24" ]]; then
-		echo "Error: Ubuntu $VERSION is not supported! Only versions 22 and 24 are allowed"
-		exit 6
-	fi
-elif [[ "$OS" != "debian" ]] && [[ "$OS" != "ubuntu" ]]; then
-	echo "Error: Your Linux distribution ($OS) is not supported!"
-	exit 7
-fi
-
 # Проверка свободного места (минимум 2Гб)
 if [[ $(df --output=avail / | tail -n 1) -lt $((2 * 1024 * 1024)) ]]; then
 	echo 'Error: Low disk space! You need 2GB of free space!'
